@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:latest
+FROM nvcr.io/nvidia/pytorch:24.05-py3
 
 # prevent apt from hanging
 ARG DEBIAN_FRONTEND=noninteractive
