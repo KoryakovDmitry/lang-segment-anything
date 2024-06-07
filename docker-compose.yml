@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  segment:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8012:8000"
+      - "3030:3030"
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - DISPLAY=:1
+    volumes:
+      - './data/:/data/'
+      - /tmp/.X11-unix/:/tmp/.X11-unix
+    runtime: nvidia
+    networks:
+      - arch-network
+
+networks:
+  arch-network:
+    driver: "bridge"
